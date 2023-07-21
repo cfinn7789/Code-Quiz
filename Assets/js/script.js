@@ -1,6 +1,8 @@
 var highScores = document.querySelector("#highscores");
 var timerEl = document.querySelector(".time");
 var startButton = document.querySelector(".start-button");
+var title = document.querySelector(".coding-quiz")
+var intro = document.querySelector(".intro")
 var questionList = document.querySelector("#question");
 var questionResult = document.querySelector("#results");
 var submitButton = document.querySelector("#submit-btn");
@@ -94,17 +96,21 @@ var questionIndex = 0;
 var possibleAnswers = [];
 
 function startQuiz(){
-    questionIndex = questionIndex + 1 
-    //another way of writing ++; ^^
-    for (let i = 0; i < questions.length; i++) {
-        const currentQuestion = questions[i];
+    startButton.style.display = "none";
+    title.style.display = "none";
+    intro.style.display = "none";
+
+
+    questionIndex = questionIndex + 1 //Adds one to the questionIndex
+    for (var i = 0; i < questions.length; i++) {
+        var currentQuestion = questions[i];
         questionList.textContent = currentQuestion.question;
         questionResult.innerHTML = '';
         
 
     for (var j = 0;  j < currentQuestion.answers.length; j++) {
-        const listItem = document.createElement('li');
-        const radioButton = document.createElement('input');
+        var listItem = document.createElement('li');
+        var radioButton = document.createElement('input');
         radioButton.type = 'radio';
         radioButton.name = 'choice-' + i;
         listItem.appendChild(radioButton);
@@ -115,7 +121,6 @@ function startQuiz(){
 }
 
 startButton.addEventListener("click", function(){
-    
     setTime();
     startQuiz();
   }
