@@ -91,22 +91,22 @@ var questions = [
         correctAnswer: "2"
     }
 ]
-//This variable 
+
 var questionIndex = 0;
 var possibleAnswers = [];
 
 function startQuiz(){
-    startButton.style.display = "none";
+    startButton.style.display = "none"; //Removes the elements on the start page
     title.style.display = "none";
     intro.style.display = "none";
 
 
     questionIndex = questionIndex + 1 //Adds one to the questionIndex
-    for (var i = 0; i < questions.length; i++) {
+    for (var i = 0; i < questions.length; i++) { //Calls the questions
         var currentQuestion = questions[i];
         questionList.textContent = currentQuestion.question;
         questionResult.innerHTML = '';
-        
+        console.log(questionIndex);
 
     for (var j = 0;  j < currentQuestion.answers.length; j++) {
         var listItem = document.createElement('li');
